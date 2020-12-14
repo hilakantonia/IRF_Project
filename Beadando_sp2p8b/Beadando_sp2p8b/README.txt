@@ -1,0 +1,2 @@
+﻿A tervezett program egy olyan felületet fog megvalósítani, amelyben a felhasználó kereshet különböző szűrési feltételek alapján filmeket.
+Ezekből pedig egy grafikon jelenik meg, amelyiken láthatja melyiknek a legjobb az értékelése.
