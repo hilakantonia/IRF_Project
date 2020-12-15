@@ -27,15 +27,26 @@ namespace Beadando_sp2p8b
         private void LoadMovies()
         {
             _movies.Clear();
-            using (StreamReader sr = new StreamReader("IMDbmovies.csv", Encoding.Default))
+            using (StreamReader sr = new StreamReader("Movies.csv", Encoding.Default))
             {
                 sr.ReadLine(); // Remove headers
                 while (!sr.EndOfStream)
                 {
-                    string[] line = sr.ReadLine().Split(',');
+                    string[] line = sr.ReadLine().Split(';');
 
                     Movie s = new Movie();
-                    s.Title = line[1];
+                    s.ID = Convert.ToInt32(line[1]);
+                    s.Title = line[2];
+                    s.Year = Convert.ToInt32(line[3]);
+                    s.Age = line[4];
+                    s.IMDB = Convert.ToDouble(line[5]);
+                    s.Netflix = Convert.ToInt32(line[7]);
+                    s.Hulu = Convert.ToInt32(line[8]);
+                    s.Prime = Convert.ToInt32(line[9]);
+                    s.Disney = Convert.ToInt32(line[10]);
+                    s.Genres = line[13];
+                    s.Language = line[15];
+                    s.Duration = Convert.ToDouble(line[16]);
                     _movies.Add(s);
                 }
             }
