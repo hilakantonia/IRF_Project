@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Beadando_sp2p8b
 {
-    class Subscribe
+    public class Subscribe
     {
         public string Subscription(string email, bool elfogad)
         {
