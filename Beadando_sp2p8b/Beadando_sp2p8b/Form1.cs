@@ -21,12 +21,16 @@ namespace Beadando_sp2p8b
             LoadChart(); 
 
             dataGridView1.DataSource = _movies;
-            
+
+            Ball b = new Ball();
+            panel1.Controls.Add(b);
+
 
         }
 
         private List<Movie> _movies = new List<Movie>();
         private List<Movie> _movieschart = new List<Movie>();
+        private List<Ball> _balls = new List<Ball>();
 
         private void LoadMovies()
         {
@@ -44,10 +48,6 @@ namespace Beadando_sp2p8b
                     s.Year = Convert.ToInt32(line[3]);
                     s.Age = line[4];
                     s.IMDB = Convert.ToDouble(line[5]);
-                    s.Netflix = Convert.ToInt32(line[7]);
-                    s.Hulu = Convert.ToInt32(line[8]);
-                    s.Prime = Convert.ToInt32(line[9]);
-                    s.Disney = Convert.ToInt32(line[10]);
                     s.Genres = line[13];
                     s.Language = line[15];
                     s.Duration = Convert.ToDouble(line[16]);
@@ -85,9 +85,7 @@ namespace Beadando_sp2p8b
                          select new
                          {
                              Title = x.Title,
-                             Year = x.Year,
                              Age = x.Age,
-                             IMDB = x.IMDB,
                              Language = x.Language,
                              Duration = x.Duration,
                          };
@@ -150,5 +148,7 @@ namespace Beadando_sp2p8b
         {
             RefreshData();
         }
+
+ 
     }
 }
