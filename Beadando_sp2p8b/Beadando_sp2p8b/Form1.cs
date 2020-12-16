@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Beadando_sp2p8b
 {
@@ -17,12 +18,15 @@ namespace Beadando_sp2p8b
         {
             InitializeComponent();
             LoadMovies();
+            LoadChart(); 
 
             dataGridView1.DataSource = _movies;
+            
 
         }
 
         private List<Movie> _movies = new List<Movie>();
+        private List<Movie> _movieschart = new List<Movie>();
 
         private void LoadMovies()
         {
@@ -52,10 +56,89 @@ namespace Beadando_sp2p8b
             }
         }
 
+        private void LoadChart()
+        {
+
+            _movieschart.Clear();
+            using (StreamReader src = new StreamReader("Movies.csv", Encoding.Default))
+            {
+                src.ReadLine(); // Remove headers
+                while (!src.EndOfStream)
+                {
+                    string[] line = src.ReadLine().Split(';');
+
+                    Movie e = new Movie();
+                    e.Title = line[2];
+                    e.IMDB = Convert.ToDouble(line[5]);
+                    _movieschart.Add(e);
+                }
+            }
+
+            chart1.DataSource = _movieschart;
+            Chart();
+        }
+
+        private void RefreshData()
+        {
+            var adatok = from x in _movies
+                         where x.Genres == comboBox1.SelectedItem.ToString() && x.Age == comboBox2.SelectedItem.ToString()
+                         select new
+                         {
+                             Title = x.Title,
+                             Year = x.Year,
+                             Age = x.Age,
+                             IMDB = x.IMDB,
+                             Language = x.Language,
+                             Duration = x.Duration,
+                         };
+
+            var adatokchart = from x in _movies
+                         where x.Genres == comboBox1.SelectedItem.ToString() && x.Age == comboBox2.SelectedItem.ToString()
+                         select new
+                         {
+                             Title = x.Title,
+                             IMDB = x.IMDB,
+                         };
+
+
+            dataGridView1.DataSource = adatok.ToList();
+
+            chart1.DataSource = adatokchart.ToList();
+            Chart();
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
             f2.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void Chart()
+        {
+            var series = chart1.Series[0];
+            series.ChartType = SeriesChartType.Column;
+            series.XValueMember = "Title";
+            series.YValueMembers = "IMDB";
+            series.BorderWidth = 2;
+
+            var legend = chart1.Legends[0];
+            legend.Enabled = false;
+
+            var chartArea = chart1.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = true;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
