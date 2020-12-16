@@ -81,7 +81,7 @@ namespace Beadando_sp2p8b
         private void RefreshData()
         {
             var adatok = from x in _movies
-                         where x.Genres == comboBox1.SelectedItem.ToString() && x.Age == comboBox2.SelectedItem.ToString()
+                         where x.Genres == comboBox1.SelectedItem.ToString() && x.Year == numericUpDown1.Value
                          select new
                          {
                              Title = x.Title,
@@ -93,8 +93,8 @@ namespace Beadando_sp2p8b
                          };
 
             var adatokchart = from x in _movies
-                         where x.Genres == comboBox1.SelectedItem.ToString() && x.Age == comboBox2.SelectedItem.ToString()
-                         select new
+                         where x.Genres == comboBox1.SelectedItem.ToString()  && x.Year == numericUpDown1.Value
+                              select new
                          {
                              Title = x.Title,
                              IMDB = x.IMDB,
@@ -137,6 +137,16 @@ namespace Beadando_sp2p8b
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             RefreshData();
         }

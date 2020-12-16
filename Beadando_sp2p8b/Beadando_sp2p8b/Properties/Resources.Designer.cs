@@ -63,6 +63,16 @@ namespace Beadando_sp2p8b.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Movies_background {
+            get {
+                object obj = ResourceManager.GetObject("Movies-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap movies_to_watch_1585258004 {
             get {
                 object obj = ResourceManager.GetObject("movies-to-watch-1585258004", resourceCulture);
