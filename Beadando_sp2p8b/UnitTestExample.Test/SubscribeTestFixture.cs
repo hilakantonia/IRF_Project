@@ -2,7 +2,6 @@
 using Moq;
 using NUnit.Framework;
 using System;
-using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,11 @@ namespace UnitTestExample.Test
     
         public class SubscribeTestFixture
         {
-            [Test]
+            [Test,
+            TestCase("pistike@probahu", false),
+            TestCase("pistike.proba.hu", false),
+            TestCase("pistike@gmail.com", true)
+            ]
             public void TestValidateEmail(string email, bool expectedResult)
             {
             // Arrange
