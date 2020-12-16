@@ -8,24 +8,28 @@ using System.Windows.Forms;
 
 namespace Beadando_sp2p8b
 {
-    public class Ball : Label
+    public class PauseButton : Label
     {
-        public Ball()
+        public PauseButton()
         {
             AutoSize = false;
-            Width = 50;
-            Height = Width;
-            Paint += Ball_Paint;
+            Width = 5;
+            Height = 20;
+            Top = 10;
+            Left = 12;
+            Paint += PauseButton_Paint;
         }
 
-        private void Ball_Paint(object sender, PaintEventArgs e)
+        private void PauseButton_Paint(object sender, PaintEventArgs e)
         {
             DrawImage(e.Graphics);
+
         }
 
         protected void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            g.FillRectangle(new SolidBrush(Color.Black), 0, 0, Width, Height);
+
         }
     }
 }

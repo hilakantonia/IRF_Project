@@ -18,19 +18,35 @@ namespace Beadando_sp2p8b
         {
             InitializeComponent();
             LoadMovies();
-            LoadChart(); 
+            LoadChart();
 
             dataGridView1.DataSource = _movies;
 
-            Ball b = new Ball();
-            panel1.Controls.Add(b);
+
+            
+
+            
+
+            PauseButton pb = new PauseButton();
+            panel2.Controls.Add(pb);
+
+            PauseButtonRight pbr = new PauseButtonRight();
+            panel2.Controls.Add(pbr);
+
+            BSquare b = new BSquare();
+            panel2.Controls.Add(b);
 
 
-        }
+
+            
+
+
+
+        }   
 
         private List<Movie> _movies = new List<Movie>();
         private List<Movie> _movieschart = new List<Movie>();
-        private List<Ball> _balls = new List<Ball>();
+        
 
         private void LoadMovies()
         {
@@ -147,8 +163,9 @@ namespace Beadando_sp2p8b
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             RefreshData();
+        
         }
 
- 
+
     }
 }

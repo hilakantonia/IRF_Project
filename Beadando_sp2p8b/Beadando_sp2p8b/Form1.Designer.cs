@@ -29,9 +29,9 @@ namespace Beadando_sp2p8b
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -40,7 +40,7 @@ namespace Beadando_sp2p8b
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -68,16 +68,16 @@ namespace Beadando_sp2p8b
             // 
             // chart1
             // 
-            chartArea11.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea11);
-            legend11.Name = "Legend1";
-            this.chart1.Legends.Add(legend11);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(547, 134);
             this.chart1.Name = "chart1";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            this.chart1.Series.Add(series11);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(595, 378);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -169,12 +169,13 @@ namespace Beadando_sp2p8b
             this.label3.TabIndex = 11;
             this.label3.Text = "Year:";
             // 
-            // panel1
+            // panel2
             // 
-            this.panel1.Location = new System.Drawing.Point(416, 21);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(392, 85);
-            this.panel1.TabIndex = 12;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Location = new System.Drawing.Point(907, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(109, 100);
+            this.panel2.TabIndex = 13;
             // 
             // Form1
             // 
@@ -183,7 +184,7 @@ namespace Beadando_sp2p8b
             this.BackgroundImage = global::Beadando_sp2p8b.Properties.Resources.Movies_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1154, 524);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label4);
@@ -212,7 +213,7 @@ namespace Beadando_sp2p8b
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
